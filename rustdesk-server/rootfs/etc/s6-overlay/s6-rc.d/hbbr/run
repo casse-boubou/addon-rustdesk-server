@@ -1,0 +1,12 @@
+#!/command/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+# Home Assistant Add-on: RustDesk-Server
+# Runs hbbr
+# ==============================================================================
+
+
+cd /config
+PARAMS=
+[ "${ENCRYPTED_ONLY}" = "1" ] && PARAMS="-k _"
+/opt/rustdesk-server/hbbr $PARAMS

@@ -1,0 +1,84 @@
+#!/command/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+# Home Assistant Add-on: RustDesk-Server
+# Runs Key-secret
+# ==============================================================================
+bashio::log.info "Verifying keypair configuration"
+
+if [ ! -d /config ] ; then
+  mkdir /config
+fi
+
+# ENV variables
+if [ ! -f /config/id_ed25519 ] && ! bashio::config.is_empty 'private_key'; then
+    bashio::log.info "private_key is not already configured but is provided"
+    private_key=$(bashio::config 'private_key')
+    echo -n "$private_key" > /config/id_ed25519
+    bashio::log.info "Private key created from config variable"
+fi
+
+if [ ! -f /config/id_ed25519.pub ] && ! bashio::config.is_empty 'public_key'; then
+    bashio::log.info "public_key is not already configured but is provided"
+    public_key=$(bashio::config 'public_key')
+    echo -n "$public_key" > /config/id_ed25519.pub
+    bashio::log.info "Public key created from config variable"
+fi
+
+# check if the keys provided and present in config directory are identical
+if [ -f /config/id_ed25519 ] && ! bashio::config.is_empty 'private_key'; then
+    present_private_key="$(cat '/config/id_ed25519')"
+    if ! bashio::config.equals 'private_key' "$present_private_key"; then
+        bashio::log.fatal "Provided Private key and present Private key in the config folder are not identical"
+        bashio::log.fatal "Please only provide one Private key"
+        /run/s6/basedir/bin/halt
+        exit 1
+    else
+        bashio::log.debug "GOOD! Provided Private key and present Private key in the config folder are the same"
+    fi
+fi
+
+if [ -f /config/id_ed25519.pub ] && ! bashio::config.is_empty 'public_key'; then
+    present_public_key="$(cat '/config/id_ed25519.pub')"
+    if ! bashio::config.equals 'public_key' "$present_public_key"; then
+        bashio::log.fatal "Provided Public key and present Public key in the config folder are not identical"
+        bashio::log.fatal "Please only provide one Public key"
+        /run/s6/basedir/bin/halt
+        exit 1
+    else
+        bashio::log.debug "GOOD! Provided Public key and present Public key in the config folder are the same"
+    fi
+fi
+
+# check if both keys provided
+if [ -f /config/id_ed25519.pub ] && [ ! -f /config/id_ed25519 ]; then
+    bashio::log.fatal "Private key missing."
+    bashio::log.fatal "You must provide BOTH the private and the public key."
+    /run/s6/basedir/bin/halt
+    exit 1
+fi
+
+if [ ! -f /config/id_ed25519.pub ] && [ -f /config/id_ed25519 ]; then
+    bashio::log.fatal "Public key missing."
+    bashio::log.fatal "You must provide BOTH the private and the public key."
+    /run/s6/basedir/bin/halt
+    exit 1
+fi
+
+# here we have either no keys or both
+
+# if we have both keys, we fix permissions and ownership
+# and check for keypair validation
+if [ -f /config/id_ed25519.pub ] && [ -f /config/id_ed25519 ] ; then
+  chmod 0600 /config/id_ed25519.pub /config/id_ed25519
+  chown root:root /config/id_ed25519.pub /config/id_ed25519
+  /opt/rustdesk-server/rustdesk-utils validatekeypair "$(cat /config/id_ed25519.pub)" "$(cat /config/id_ed25519)" || {
+    bashio::log.fatal "Key pair not valid"
+    /run/s6/basedir/bin/halt
+    exit 1
+  }
+fi
+
+# if we have no keypair, hbbs will generate one
+
+bashio::log.info "Keypair are correctly configured"

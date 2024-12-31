@@ -1,0 +1,19 @@
+#!/command/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+# Home Assistant Add-on: RustDesk-Server
+# Runs hbbs
+# ==============================================================================
+
+#Check if RELAY ENV is defined
+if bashio::config.exists 'relay'; then
+    RELAY=$(bashio::config 'relay')
+    bashio::log.info "Relay for hbbs set to $RELAY"
+fi
+
+
+sleep 10
+cd /config
+PARAMS=
+[ "${ENCRYPTED_ONLY}" = "1" ] && PARAMS="-k _"
+/opt/rustdesk-server/hbbs -r $RELAY $PARAMS

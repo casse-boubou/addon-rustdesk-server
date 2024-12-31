@@ -1,0 +1,28 @@
+---
+name: Rustdesk-Server
+url: https://github.com/casse-boubou/addon-rustdesk-server
+version: dev
+slug: rustdesk-server
+arch:
+  - aarch64
+description: Rustdesk-Server pour HomeAssistant
+codenotary: erdnaxela02@hotmail.fr
+init: false
+map:
+  - type: addon_config
+    read_only: false
+environment:
+  ENCRYPTED_ONLY: '1'
+  RELAY: 'rustdeskrelay.example.com'
+ports:
+  21114/tcp: 21114
+  21115/tcp: 21115
+  21116/tcp: 21116
+  21116/udp: 21116
+  21118/tcp: 21118
+  21117/tcp: 21117
+  21119/tcp: 21119
+schema:
+  private_key: password?
+  public_key: password?
+  relay: str?
