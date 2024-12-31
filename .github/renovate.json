@@ -1,0 +1,62 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>casse-boubou/ha-addon-workflows//.github/renovate.json"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["/build.yaml$"],
+      "matchStringsStrategy": "any",
+      "matchStrings": [
+        "(aarch64|amd64|armhf|armv7|i386):\\s[\"']?(?<depName>.*?):(?<currentValue>.*?)[\"']?\\s"
+      ],
+      "datasourceTemplate": "docker"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["/Dockerfile$"],
+      "matchStringsStrategy": "any",
+      "matchStrings": [
+        "ARG BUILD_FROM=(?<depName>.*?):(?<currentValue>.*?)\\s+"
+      ],
+      "datasourceTemplate": "docker"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["/Dockerfile$"],
+      "matchStringsStrategy": "any",
+      "matchStrings": [
+        "\\s\\s(?<package>[a-z0-9][a-z0-9-_]+)=(?<currentValue>[a-z0-9-_.]+)\\s+"
+      ],
+      "datasourceTemplate": "repology",
+      "depNameTemplate": "alpine_3_21/{{package}}",
+      "versioningTemplate": "loose"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["/Dockerfile$"],
+      "matchStrings": ["ARG RUSTDESK_SERVER_VERSION=(?<currentValue>.+?)\\s+"],
+      "datasourceTemplate": "github-tags",
+      "depNameTemplate": "rustdesk/rustdesk-server",
+      "versioningTemplate": "loose"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": ["docker"],
+      "commitMessagePrefix": "⬆️",
+      "commitMessageTopic": "Addon Base Image"
+    },
+    {
+      "matchDatasources": ["repology"],
+      "commitMessagePrefix": "⬆️",
+      "commitMessageTopic": "{{packageName}}",
+      "groupName": "internal packages"
+    },
+    {
+      "matchDatasources": ["github-tags"],
+      "matchDepNames": ["rustdesk/rustdesk-server"],
+      "commitMessagePrefix": "✨",
+      "commitMessageTopic": "RustDesk-server"
+    }
+  ]
+}
