@@ -9,4 +9,7 @@
 cd /config
 PARAMS=
 [ "${ENCRYPTED_ONLY}" = "1" ] && PARAMS="-k _"
+
+
+bashio::log.info $(/opt/rustdesk-server/hbbr --version)
 /opt/rustdesk-server/hbbr $PARAMS

@@ -16,4 +16,7 @@ sleep 10
 cd /config
 PARAMS=
 [ "${ENCRYPTED_ONLY}" = "1" ] && PARAMS="-k _"
+
+
+bashio::log.info $(/opt/rustdesk-server/hbbs --version)
 /opt/rustdesk-server/hbbs -r $RELAY $PARAMS
