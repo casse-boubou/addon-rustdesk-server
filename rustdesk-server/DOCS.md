@@ -38,13 +38,13 @@ relay: mondomaine.duckdns.org
 
 ### Option: `private_key` (optional)
 
-Partie privée de la paire de clés. Si défini, force l'utilisation d'une clé spécifique, s'il est défini sur "_", force l'utilisation de n'importe quelle clé.
+Partie privée de la paire de clés. Si défini, force l'utilisation d'une clé spécifique, s'il est défini sur "\_", force l'utilisation de n'importe quelle clé.
 
 ##### _Private part of the key pair. If set force the use of a specific key, if set to "\_" force the use of any key_
 
 ### Option: `public_key` (optional)
 
-Partie public de la paire de clés. Si défini, force l'utilisation d'une clé spécifique, s'il est défini sur "_", force l'utilisation de n'importe quelle clé.
+Partie public de la paire de clés. Si défini, force l'utilisation d'une clé spécifique, s'il est défini sur "\_", force l'utilisation de n'importe quelle clé.
 
 ##### _Public part of the key pair. If set force the use of a specific key, if set to "\_" force the use of any key_
 

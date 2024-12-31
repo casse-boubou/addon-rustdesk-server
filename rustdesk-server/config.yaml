@@ -12,8 +12,8 @@ map:
   - type: addon_config
     read_only: false
 environment:
-  ENCRYPTED_ONLY: '1'
-  RELAY: 'rustdeskrelay.example.com'
+  ENCRYPTED_ONLY: "1"
+  RELAY: "rustdeskrelay.example.com"
 ports:
   21114/tcp: 21114
   21115/tcp: 21115
