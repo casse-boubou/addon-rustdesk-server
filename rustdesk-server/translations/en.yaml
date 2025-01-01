@@ -10,10 +10,14 @@ configuration:
     name: relay-server-ip
     description: IP address/DNS name of the machines running hbbr (usualy this container) separated by comma.
 network:
-  21114/tcp: hbbs - For Pro users without an SSL Proxy you will need to open TCP port 21114 for the API to work alternatively using an SSL Proxy open TCP port 443.
-  21115/tcp: hbbs - Is used for the NAT type test and online status query. The MINIMUM REQUIRED ports for RustDesk to work.
+  21114/tcp: hbbs - For Pro users without an SSL Proxy you will need to open TCP port 21114 for the API to work.
+             Alternatively using an SSL Proxy open TCP port 443.
+  21115/tcp: hbbs - Is used for the NAT type test and online status query.
+             The MINIMUM REQUIRED ports for RustDesk to work.
   21116/tcp: hbbs - Is used for TCP hole punching and connection service
   21116/udp: hbbs - Is used for the ID registration and heartbeat service
-  21118/tcp: hbbs - Can be opened if you want to use the RustDesk Web Client - If you do not need web client (21118, 21119) support, the corresponding ports can be disabled.
+  21118/tcp: hbbs - Can be opened if you want to use the RustDesk Web Client
+             If you do not need web client (21118, 21119) support, the corresponding ports can be disabled.
   21117/tcp: hbbr - Is used for the Relay services. The MINIMUM REQUIRED ports for RustDesk to work.
-  21119/tcp: hbbr - Can be opened if you want to use the RustDesk Web Client - If you do not need web client (21118, 21119) support, the corresponding ports can be disabled.
+  21119/tcp: hbbr - Can be opened if you want to use the RustDesk Web Client
+             If you do not need web client (21118, 21119) support, the corresponding ports can be disabled.

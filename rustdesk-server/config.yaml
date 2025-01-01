@@ -19,9 +19,9 @@ ports:
   21116/tcp: 21116
   21116/udp: 21116
   21117/tcp: 21117
-  21114/tcp: 
-  21118/tcp: 
-  21119/tcp: 
+  21114/tcp: 21114
+  21118/tcp: 21118
+  21119/tcp: 21119
 schema:
   private_key: password?
   public_key: password?
