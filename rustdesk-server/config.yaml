@@ -15,13 +15,13 @@ environment:
   ENCRYPTED_ONLY: "1"
   RELAY: "rustdeskrelay.example.com"
 ports:
-  21114/tcp: 21114
   21115/tcp: 21115
   21116/tcp: 21116
   21116/udp: 21116
-  21118/tcp: 21118
   21117/tcp: 21117
-  21119/tcp: 21119
+  21114/tcp: 
+  21118/tcp: 
+  21119/tcp: 
 schema:
   private_key: password?
   public_key: password?
