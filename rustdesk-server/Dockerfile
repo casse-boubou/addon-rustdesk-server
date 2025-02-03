@@ -5,7 +5,7 @@ ARG BUILD_FROM=ghcr.io/hassio-addons/base/aarch64:17.1.0
 FROM ${BUILD_FROM}
 
 # https://github.com/rustdesk/rustdesk-server/releases
-ARG RUSTDESK_SERVER_VERSION=1.1.12
+ARG RUSTDESK_SERVER_VERSION=1.1.14
 
 # Add Rustdesk-Server
 RUN set -eux \
