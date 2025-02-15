@@ -1,6 +1,6 @@
 ---
 build_from:
-  aarch64: ghcr.io/hassio-addons/base/aarch64:17.1.0
+  aarch64: ghcr.io/hassio-addons/base/aarch64:17.2.0
 codenotary:
   base_image: codenotary@frenck.dev
   signer: erdnaxela02@hotmail.fr
