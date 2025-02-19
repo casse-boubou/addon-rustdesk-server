@@ -4,6 +4,7 @@
 [![License][license-shield]](LICENSE)
 
 ![Supports aarch64 Architecture][aarch64-shield]
+![Supports i386 Architecture][i386-shield]
 
 [RustDesk-Server][rustdesk-server] permet de partager des fichiers avec d'autres de manière
 simple.
@@ -68,6 +69,7 @@ SOFTWARE.
 [releases-shield]: https://img.shields.io/github/v/release/casse-boubou/addon-rustdesk-server
 [license-shield]: https://img.shields.io/github/license/casse-boubou/addon-rustdesk-server
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
+[i386-shield]: https://img.shields.io/badge/i386-yes-green.svg
 [rustdesk-server]: https://github.com/rustdesk/rustdesk-server
 [discord-ha]: https://discord.gg/c5DvZ4e
 [forum]: https://community.home-assistant.io
