@@ -15,7 +15,7 @@ RUN set -eux \
         unzip=6.0-r15 \
         ; \
     mkdir -p /opt; \
-    if [ "${BUILD_ARCH}" = "aarch64" ]; then ARCH="arm64V8"; \
+    if [ "${BUILD_ARCH}" = "aarch64" ]; then ARCH="arm64v8"; \
     elif [ "${BUILD_ARCH}" = "i386" ]; then ARCH="i386"; \
     fi; \
     curl -S -J -L -o /tmp/rustdesk-server.zip \
