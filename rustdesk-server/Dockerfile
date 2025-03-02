@@ -21,7 +21,7 @@ RUN set -eux \
     curl -S -J -L -o /tmp/rustdesk-server.zip \
         "https://github.com/rustdesk/rustdesk-server/releases/download/${RUSTDESK_SERVER_VERSION}/rustdesk-server-linux-${ARCH}.zip"; \
     unzip /tmp/rustdesk-server.zip -d /opt; \
-    mv /opt/arm64v8 /opt/rustdesk-server; \
+    mv /opt/${ARCH} /opt/rustdesk-server; \
     rm /tmp/rustdesk-server.zip; \
     apk del .build-deps
 
