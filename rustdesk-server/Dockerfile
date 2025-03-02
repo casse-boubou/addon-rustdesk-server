@@ -1,5 +1,31 @@
+ARG BUILD_FROM=ghcr.io/hassio-addons/base/aarch64:17.2.1
+
+# https://github.com/hassio-addons/addon-base/releases
+# hadolint ignore=DL3006
+FROM ${BUILD_FROM}
+
+# https://github.com/rustdesk/rustdesk-server/releases
+ARG RUSTDESK_SERVER_VERSION=1.1.14
+
+# Add Rustdesk-Server
+RUN set -eux \
+    apk update; \
+    \
+    apk add --no-cache --virtual .build-deps \
+        unzip=6.0-r15 \
+        ; \
+    mkdir -p /opt; \
+    curl -S -J -L -o /tmp/rustdesk-server.zip \
+        "https://github.com/rustdesk/rustdesk-server/releases/download/${RUSTDESK_SERVER_VERSION}/rustdesk-server-linux-arm64v8.zip"; \
+    unzip /tmp/rustdesk-server.zip -d /opt; \
+    mv /opt/arm64v8 /opt/rustdesk-server; \
+    rm /tmp/rustdesk-server.zip; \
+    apk del .build-deps
+
+COPY --chmod=445 rootfs /
+WORKDIR /
+
 # Build arguments
-ARG BUILD_FROM
 ARG BUILD_ARCH
 ARG BUILD_DATE
 ARG BUILD_DESCRIPTION
@@ -7,37 +33,6 @@ ARG BUILD_NAME
 ARG BUILD_REF
 ARG BUILD_REPOSITORY
 ARG BUILD_VERSION
-
-# https://github.com/hassio-addons/addon-base/releases
-# hadolint ignore=DL3006
-FROM $BUILD_FROM
-
-# https://github.com/rustdesk/rustdesk-server/releases
-ARG RUSTDESK_SERVER_VERSION=1.1.14
-
-# Add Rustdesk-Server
-RUN set -eux \
-    && apk update \
-    \
-    && apk add --no-cache --virtual .build-deps \
-        unzip=6.0-r15 \
-    && mkdir -p /opt \
-    && if [ "${BUILD_ARCH}" = "aarch64" ]; \
-        then \
-            curl -S -J -L -o /tmp/rustdesk-server.zip \
-                "https://github.com/rustdesk/rustdesk-server/releases/download/${RUSTDESK_SERVER_VERSION}/rustdesk-server-linux-arm64v8.zip"; \
-        elif [ "${BUILD_ARCH}" = "i386" ]; \
-        then \
-            curl -S -J -L -o /tmp/rustdesk-server.zip \
-            "https://github.com/rustdesk/rustdesk-server/releases/download/${RUSTDESK_SERVER_VERSION}/rustdesk-server-linux-i386.zip"; \
-        fi \
-    && unzip /tmp/rustdesk-server.zip -d /opt \
-    && mv /opt/arm64v8 /opt/rustdesk-server \
-    && rm /tmp/rustdesk-server.zip \
-    && apk del .build-deps
-
-COPY --chmod=445 rootfs /
-WORKDIR /
 
 # Labels
 LABEL \
