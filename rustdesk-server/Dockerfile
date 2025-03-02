@@ -17,25 +17,24 @@ ARG RUSTDESK_SERVER_VERSION=1.1.14
 
 # Add Rustdesk-Server
 RUN set -eux \
-    apk update; \
+    && apk update \
     \
-    apk add --no-cache --virtual .build-deps \
+    && apk add --no-cache --virtual .build-deps \
         unzip=6.0-r15 \
-        ; \
-    mkdir -p /opt; \
-    if [ "${BUILD_ARCH}" = "aarch64" ]; \
-    then \
-    curl -S -J -L -o /tmp/rustdesk-server.zip \
-        "https://github.com/rustdesk/rustdesk-server/releases/download/${RUSTDESK_SERVER_VERSION}/rustdesk-server-linux-arm64v8.zip"; \
-    elif [ "${BUILD_ARCH}" = "i386" ]; \
-    then \
-    curl -S -J -L -o /tmp/rustdesk-server.zip \
-    "https://github.com/rustdesk/rustdesk-server/releases/download/${RUSTDESK_SERVER_VERSION}/rustdesk-server-linux-i386.zip"; \
-    fi; \
-    unzip /tmp/rustdesk-server.zip -d /opt; \
-    mv /opt/arm64v8 /opt/rustdesk-server; \
-    rm /tmp/rustdesk-server.zip; \
-    apk del .build-deps
+    && mkdir -p /opt \
+    && if [ "${BUILD_ARCH}" = "aarch64" ]; \
+        then \
+            curl -S -J -L -o /tmp/rustdesk-server.zip \
+                "https://github.com/rustdesk/rustdesk-server/releases/download/${RUSTDESK_SERVER_VERSION}/rustdesk-server-linux-arm64v8.zip"; \
+        elif [ "${BUILD_ARCH}" = "i386" ]; \
+        then \
+            curl -S -J -L -o /tmp/rustdesk-server.zip \
+            "https://github.com/rustdesk/rustdesk-server/releases/download/${RUSTDESK_SERVER_VERSION}/rustdesk-server-linux-i386.zip"; \
+        fi \
+    && unzip /tmp/rustdesk-server.zip -d /opt \
+    && mv /opt/arm64v8 /opt/rustdesk-server \
+    && rm /tmp/rustdesk-server.zip \
+    && apk del .build-deps
 
 COPY --chmod=445 rootfs /
 WORKDIR /
