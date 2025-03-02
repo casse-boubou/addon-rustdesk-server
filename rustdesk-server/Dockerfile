@@ -1,8 +1,9 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base/aarch64:17.2.1
+ARG BUILD_FROM
+ARG BUILD_ARCH
 
 # https://github.com/hassio-addons/addon-base/releases
 # hadolint ignore=DL3006
-FROM ${BUILD_FROM}
+FROM $BUILD_FROM
 
 # https://github.com/rustdesk/rustdesk-server/releases
 ARG RUSTDESK_SERVER_VERSION=1.1.14
@@ -16,7 +17,7 @@ RUN set -eux \
         ; \
     mkdir -p /opt; \
     curl -S -J -L -o /tmp/rustdesk-server.zip \
-        "https://github.com/rustdesk/rustdesk-server/releases/download/${RUSTDESK_SERVER_VERSION}/rustdesk-server-linux-arm64v8.zip"; \
+        "https://github.com/rustdesk/rustdesk-server/releases/download/${RUSTDESK_SERVER_VERSION}/rustdesk-server-linux-${BUILD_ARCH}.zip"; \
     unzip /tmp/rustdesk-server.zip -d /opt; \
     mv /opt/arm64v8 /opt/rustdesk-server; \
     rm /tmp/rustdesk-server.zip; \
