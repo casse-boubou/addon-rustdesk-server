@@ -5,7 +5,7 @@ FROM ${BUILD_FROM}
 
 # https://github.com/rustdesk/rustdesk-server/releases
 ARG BUILD_ARCH
-ARG RUSTDESK_SERVER_VERSION=1.4.2
+ARG RUSTDESK_SERVER_VERSION=1.1.14
 
 # Add Rustdesk-Server
 RUN set -eux \
