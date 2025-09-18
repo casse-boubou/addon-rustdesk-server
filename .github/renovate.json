@@ -35,7 +35,7 @@
       "customType": "regex",
       "fileMatch": ["/Dockerfile$"],
       "matchStrings": ["ARG RUSTDESK_SERVER_VERSION=(?<currentValue>.+?)\\s+"],
-      "datasourceTemplate": "github-tags",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "rustdesk/rustdesk-server",
       "versioningTemplate": "loose"
     }
