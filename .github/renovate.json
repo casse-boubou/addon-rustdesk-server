@@ -1,14 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "github>casse-boubou/ha-addon-workflows//.github/renovate.json"
-  ],
+  "extends": ["github>casse-boubou/ha-addon-workflows//.github/renovate.json"],
   "customManagers": [
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "//build.yaml$/"
-      ],
+      "managerFilePatterns": ["//build.yaml$/"],
       "matchStringsStrategy": "any",
       "matchStrings": [
         "(aarch64|amd64|armhf|armv7|i386):\\s[\"']?(?<depName>.*?):(?<currentValue>.*?)[\"']?\\s"
@@ -17,9 +13,7 @@
     },
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "//Dockerfile$/"
-      ],
+      "managerFilePatterns": ["//Dockerfile$/"],
       "matchStringsStrategy": "any",
       "matchStrings": [
         "ARG BUILD_FROM=(?<depName>.*?):(?<currentValue>.*?)\\s+"
@@ -28,9 +22,7 @@
     },
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "//Dockerfile$/"
-      ],
+      "managerFilePatterns": ["//Dockerfile$/"],
       "matchStringsStrategy": "any",
       "matchStrings": [
         "\\s\\s(?<package>[a-z0-9][a-z0-9-_]+)=(?<currentValue>[a-z0-9-_.]+)\\s+"
@@ -41,12 +33,8 @@
     },
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "//Dockerfile$/"
-      ],
-      "matchStrings": [
-        "ARG RUSTDESK_SERVER_VERSION=(?<currentValue>.+?)\\s+"
-      ],
+      "managerFilePatterns": ["//Dockerfile$/"],
+      "matchStrings": ["ARG RUSTDESK_SERVER_VERSION=(?<currentValue>.+?)\\s+"],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "rustdesk/rustdesk-server",
       "versioningTemplate": "loose"
@@ -54,27 +42,19 @@
   ],
   "packageRules": [
     {
-      "matchDatasources": [
-        "docker"
-      ],
+      "matchDatasources": ["docker"],
       "commitMessagePrefix": "⬆️",
       "commitMessageTopic": "Addon Base Image"
     },
     {
-      "matchDatasources": [
-        "repology"
-      ],
+      "matchDatasources": ["repology"],
       "commitMessagePrefix": "⬆️",
       "commitMessageTopic": "{{packageName}}",
       "groupName": "internal packages"
     },
     {
-      "matchDatasources": [
-        "github-tags"
-      ],
-      "matchDepNames": [
-        "rustdesk/rustdesk-server"
-      ],
+      "matchDatasources": ["github-tags"],
+      "matchDepNames": ["rustdesk/rustdesk-server"],
       "commitMessagePrefix": "✨",
       "commitMessageTopic": "RustDesk-server"
     }
