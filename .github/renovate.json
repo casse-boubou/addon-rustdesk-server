@@ -53,7 +53,7 @@
       "groupName": "internal packages"
     },
     {
-      "matchDatasources": ["github-tags"],
+      "matchDatasources": ["github-releases"],
       "matchDepNames": ["rustdesk/rustdesk-server"],
       "commitMessagePrefix": "✨",
       "commitMessageTopic": "RustDesk-server"
