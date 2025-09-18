@@ -28,7 +28,7 @@
         "\\s\\s(?<package>[a-z0-9][a-z0-9-_]+)=(?<currentValue>[a-z0-9-_.]+)\\s+"
       ],
       "datasourceTemplate": "repology",
-      "depNameTemplate": "alpine_3_21/{{package}}",
+      "depNameTemplate": "alpine_3_22/{{package}}",
       "versioningTemplate": "loose"
     },
     {
