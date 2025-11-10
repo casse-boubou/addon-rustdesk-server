@@ -7,7 +7,6 @@ arch:
   - aarch64
   - i386
 description: Rustdesk-Server pour HomeAssistant
-codenotary: erdnaxela02@hotmail.fr
 init: false
 map:
   - type: addon_config
