@@ -3,13 +3,18 @@ name: CI
 
 # yamllint disable-line rule:truthy
 on:
-  push:
   pull_request:
     types:
       - opened
       - reopened
   workflow_dispatch:
 
+permissions:
+  actions: read
+  contents: read
+  packages: read
+  security-events: write
+
 jobs:
   workflows:
-    uses: casse-boubou/ha-addon-workflows/.github/workflows/addon-ci.yaml@main
+    uses: casse-boubou/ha-addon-workflows/.github/workflows/app-ci.yaml@main

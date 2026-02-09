@@ -1,11 +1,14 @@
 ---
-name: Sync labels
+name: Sync Labels
 
 # yamllint disable-line rule:truthy
 on:
   schedule:
     - cron: "34 5 * * *"
   workflow_dispatch:
+
+permissions:
+  issues: write
 
 jobs:
   workflows:

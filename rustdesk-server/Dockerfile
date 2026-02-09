@@ -16,7 +16,6 @@ RUN set -eux \
         ; \
     mkdir -p /opt; \
     if [ "${BUILD_ARCH}" = "aarch64" ]; then ARCH="arm64v8"; \
-    elif [ "${BUILD_ARCH}" = "i386" ]; then ARCH="i386"; \
     fi; \
     curl -S -J -L -o /tmp/rustdesk-server.zip \
         "https://github.com/rustdesk/rustdesk-server/releases/download/${RUSTDESK_SERVER_VERSION}/rustdesk-server-linux-${ARCH}.zip"; \
@@ -47,7 +46,7 @@ LABEL \
     maintainer="Frosh" \
     org.opencontainers.image.title="${BUILD_NAME}" \
     org.opencontainers.image.description="${BUILD_DESCRIPTION}" \
-    org.opencontainers.image.vendor="Frosh Home Assistant Add-ons" \
+    org.opencontainers.image.vendor="Frosh Home Assistant App" \
     org.opencontainers.image.authors="Frosh" \
     org.opencontainers.image.licenses="MIT" \
     org.opencontainers.image.url="https://github.com/casse-boubou/hassio-addons" \
