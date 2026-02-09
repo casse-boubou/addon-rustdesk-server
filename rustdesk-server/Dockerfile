@@ -16,7 +16,6 @@ RUN set -eux \
         ; \
     mkdir -p /opt; \
     if [ "${BUILD_ARCH}" = "aarch64" ]; then ARCH="arm64v8"; \
-    elif [ "${BUILD_ARCH}" = "i386" ]; then ARCH="i386"; \
     fi; \
     curl -S -J -L -o /tmp/rustdesk-server.zip \
         "https://github.com/rustdesk/rustdesk-server/releases/download/${RUSTDESK_SERVER_VERSION}/rustdesk-server-linux-${ARCH}.zip"; \
