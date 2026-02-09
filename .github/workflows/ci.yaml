@@ -15,7 +15,6 @@ permissions:
   packages: read
   security-events: write
 
-
 jobs:
   workflows:
     uses: casse-boubou/ha-addon-workflows/.github/workflows/app-ci.yaml@main
