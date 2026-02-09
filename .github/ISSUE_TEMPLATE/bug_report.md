@@ -28,7 +28,7 @@ Include any relevant logs
 
 **Environment (please complete the following information):**
 
-- Add-on version: [e.g. 1.0.2]
+- App version: [e.g. 1.0.2]
 - Supervisor version: [e.g.supervisor-2021.03.6]
 - Operating system [e.g. Home Assistant OS 5.12]
 

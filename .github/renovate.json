@@ -44,7 +44,7 @@
     {
       "matchDatasources": ["docker"],
       "commitMessagePrefix": "⬆️",
-      "commitMessageTopic": "Addon Base Image"
+      "commitMessageTopic": "App Base Image"
     },
     {
       "matchDatasources": ["repology"],

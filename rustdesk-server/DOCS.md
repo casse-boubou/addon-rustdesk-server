@@ -1,8 +1,8 @@
-# Home Assistant Add-on: RustDesk-server
+# Home Assistant App: RustDesk-server
 
 ## About
 
-Cet add-on vous permettra d'auto-hébergez votre propre serveur [RustDesk][rustdesk] sur votre
+Cet app vous permettra d'auto-hébergez votre propre serveur [RustDesk][rustdesk] sur votre
 HomeAssistant sur RaspBerry Pi 4.
 
 Si vous utilisez RustDesk, vous devriez avoir votre propre [server RustDesk][serveur_rustdesk].\
@@ -10,22 +10,22 @@ Les serveurs publics Rustdesk sont destinés à des fins de test et de recherche
 Cela signifie que le temps nécessaire pour établir une connexion via les serveurs publics peut varier considérablement et parfois même échouer si le serveur est surchargé.\
 De plus, si la perforation échoue un jour et que la connexion est acheminée via le serveur relais public... certains jours elle peut être extrêmement rapide... d'autres moins.
 
-##### _This add-on will allow you to self-host your own [RustDesk][rustdesk] server on your HomeAssistant on RaspBerry Pi 4. If you are using RustDesk you should have your own [RustDesk Server][serveur_rustdesk]. The public rustdesk servers are meant for testing and research purposes and are not equipped to handle large amounts of traffic. This means that the amount of time it takes to establish a connection through the public servers can vary drastically and sometimes even fail if the server is overloaded. Also, if hole punching ever does fail, and the connection is routed through the public Relay Server.... some days it might be blazing fast... others not so much._
+##### _This app will allow you to self-host your own [RustDesk][rustdesk] server on your HomeAssistant on RaspBerry Pi 4. If you are using RustDesk you should have your own [RustDesk Server][serveur_rustdesk]. The public rustdesk servers are meant for testing and research purposes and are not equipped to handle large amounts of traffic. This means that the amount of time it takes to establish a connection through the public servers can vary drastically and sometimes even fail if the server is overloaded. Also, if hole punching ever does fail, and the connection is routed through the public Relay Server.... some days it might be blazing fast... others not so much._
 
 ## Installation
 
-D'habord ajoutez le repertoire à l'add-on store de HomeAssistant (`https://github.com/casse-boubou/hassio-addons`):
+D'habord ajoutez le repertoire à l'app store de HomeAssistant (`https://github.com/casse-boubou/hassio-addons`):
 
-[![Open your Home Assistant instance and show the add add-on repository dialog
+[![Open your Home Assistant instance and show the add app repository dialog
 with a specific repository URL pre-filled.][add-repo-shield]][add-repo]
 
 Ensuite recherchez RustDesk-server dans le store et cliquez sur installer:
 
-[![Open your Home Assistant instance and show the dashboard of a Supervisor add-on.][add-addon-shield]][add-addon]
+[![Open your Home Assistant instance and show the dashboard of a Supervisor app.][add-app-shield]][add-app]
 
 ## Configuration
 
-Example add-on configuration:
+Example app configuration:
 
 ```yaml
 private_key: >-
@@ -61,7 +61,7 @@ Vous pouvez consulter le changelog [GitHub ici][releases].
 ## Support
 
 Je ne suis pas dévellopeur, n'ai aucune formation de code, je suis simplement autodidact.
-Si vous avez une question concernant HA et ses add-ons vous pouvez consulter:
+Si vous avez une question concernant HA et ses apps vous pouvez consulter:
 
 - [Le Forum communautaire francophone][hacf] de HomeAssistant
 - [Le Forum communautaire anglophone][forum] de HomeAssistant.
@@ -91,8 +91,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-[add-addon]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=c751e21a_rustdesk-server
-[add-addon-shield]: https://my.home-assistant.io/badges/supervisor_addon.svg
+[add-app]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=c751e21a_rustdesk-server
+[add-app-shield]: https://my.home-assistant.io/badges/supervisor_addon.svg
 [add-repo]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fcasse-boubou%2Fhassio-addons
 [add-repo-shield]: https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg
 [discord-ha]: https://discord.gg/c5DvZ4e

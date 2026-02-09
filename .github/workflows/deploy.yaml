@@ -3,18 +3,30 @@ name: Deploy
 
 # yamllint disable-line rule:truthy
 on:
+  push:
+    branches:
+      - main
   release:
     types:
       - published
-  workflow_run:
-    workflows: ["CI"]
-    branches: [main]
-    types:
-      - completed
   workflow_dispatch:
 
+permissions: {}
+
 jobs:
-  workflows:
-    uses: casse-boubou/ha-addon-workflows/.github/workflows/addon-deploy.yaml@main
+  ci:
+    permissions:
+      actions: read
+      contents: read
+      packages: read
+      security-events: write
+    uses: casse-boubou/ha-addon-workflows/.github/workflows/app-ci.yaml@main
+
+  deploy:
+    needs: ci
+    permissions:
+      contents: read
+      packages: write
+    uses: casse-boubou/ha-addon-workflows/.github/workflows/app-deploy.yaml@main
     secrets:
       DISPATCH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}

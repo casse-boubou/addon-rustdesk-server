@@ -1,4 +1,4 @@
-# Home Assistant Add-on: RustDesk-Server
+# Home Assistant App: RustDesk-Server
 
 [![GitHub Release][releases-shield]][releases]
 [![License][license-shield]](LICENSE)
@@ -9,13 +9,13 @@
 [RustDesk-Server][rustdesk-server] permet de partager des fichiers avec d'autres de manière
 simple.
 
-[![Open your Home Assistant instance and show the add add-on repository dialog
+[![Open your Home Assistant instance and show the add app repository dialog
 with a specific repository URL pre-filled.][add-repo-shield]][add-repo]
-[![Open your Home Assistant instance and show the dashboard of a Supervisor add-on.][add-addon-shield]][add-addon]
+[![Open your Home Assistant instance and show the dashboard of a Supervisor app.][add-app-shield]][add-app]
 
 ## About
 
-Cet add-on vous permet d'auto-hébergez votre propre serveur RustDesk
+Cet app vous permet d'auto-hébergez votre propre serveur RustDesk
 sur votre HomeAssistant sur RaspBerry Pi 4.
 Si vous utilisez RustDesk, vous devriez avoir votre propre server RustDesk.
 Les serveurs publics Rustdesk sont destinés à des fins de test et de recherche
@@ -31,7 +31,7 @@ extrêmement rapide... d'autres moins.
 
 Je ne suis pas dévellopeur, n'ai aucune formation de code, je suis simplement
 autodidact.
-Si vous avez une question concernant HA et ses add-ons vous pouvez consulter:
+Si vous avez une question concernant HA et ses apps vous pouvez consulter:
 
 - [Le Forum communautaire francophone][hacf] de HomeAssistant
 - [Le Forum communautaire anglophone][forum] de HomeAssistant.
@@ -61,8 +61,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-[add-addon]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=c751e21a_rustdesk-server
-[add-addon-shield]: https://my.home-assistant.io/badges/supervisor_addon.svg
+[add-app]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=c751e21a_rustdesk-server
+[add-app-shield]: https://my.home-assistant.io/badges/supervisor_addon.svg
 [add-repo]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A//github.com/casse-boubou/hassio-addons
 [add-repo-shield]: https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg
 [releases]: https://github.com/casse-boubou/addon-rustdesk-server/releases
