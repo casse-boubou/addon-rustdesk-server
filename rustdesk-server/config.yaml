@@ -5,6 +5,7 @@ version: dev
 slug: rustdesk-server
 arch:
   - aarch64
+  - amd64
 description: Rustdesk-Server pour HomeAssistant
 init: false
 map:
