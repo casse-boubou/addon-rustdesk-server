@@ -1,25 +1,8 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>casse-boubou/ha-addon-workflows//.github/renovate.json"],
+  "extends": [
+    "github>casse-boubou/ha-addon-workflows//.github/renovate.json"
+  ],
   "customManagers": [
-    {
-      "customType": "regex",
-      "managerFilePatterns": ["//build.yaml$/"],
-      "matchStringsStrategy": "any",
-      "matchStrings": [
-        "(aarch64|amd64|armhf|armv7|i386):\\s[\"']?(?<depName>.*?):(?<currentValue>.*?)[\"']?\\s"
-      ],
-      "datasourceTemplate": "docker"
-    },
-    {
-      "customType": "regex",
-      "managerFilePatterns": ["//Dockerfile$/"],
-      "matchStringsStrategy": "any",
-      "matchStrings": [
-        "ARG BUILD_FROM=(?<depName>.*?):(?<currentValue>.*?)\\s+"
-      ],
-      "datasourceTemplate": "docker"
-    },
     {
       "customType": "regex",
       "managerFilePatterns": ["//Dockerfile$/"],
@@ -41,17 +24,6 @@
     }
   ],
   "packageRules": [
-    {
-      "matchDatasources": ["docker"],
-      "commitMessagePrefix": "⬆️",
-      "commitMessageTopic": "App Base Image"
-    },
-    {
-      "matchDatasources": ["repology"],
-      "commitMessagePrefix": "⬆️",
-      "commitMessageTopic": "{{packageName}}",
-      "groupName": "internal packages"
-    },
     {
       "matchDatasources": ["github-releases"],
       "matchDepNames": ["rustdesk/rustdesk-server"],
