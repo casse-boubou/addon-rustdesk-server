@@ -1,15 +1,11 @@
 {
-  "extends": [
-    "github>casse-boubou/ha-addon-workflows//.github/renovate.json"
-  ],
+  "extends": ["github>casse-boubou/ha-addon-workflows//.github/renovate.json"],
   "customManagers": [
     {
       "customType": "regex",
       "managerFilePatterns": ["//Dockerfile$/"],
       "matchStringsStrategy": "any",
-      "matchStrings": [
-        "\\s\\s(?<package>[a-z0-9][a-z0-9-_]+)=(?<currentValue>[a-z0-9-_.]+)\\s+"
-      ],
+      "matchStrings": ["\\s\\s(?<package>[a-z0-9][a-z0-9-_]+)=(?<currentValue>[a-z0-9-_.]+)\\s+"],
       "datasourceTemplate": "repology",
       "depNameTemplate": "alpine_3_24/{{package}}",
       "versioningTemplate": "loose"
