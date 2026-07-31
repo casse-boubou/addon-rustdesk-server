@@ -9,7 +9,7 @@ arch:
 description: Rustdesk-Server pour HomeAssistant
 init: false
 map:
-  - type: addon_config
+  - type: app_config
     read_only: false
 environment:
   ENCRYPTED_ONLY: "1"
