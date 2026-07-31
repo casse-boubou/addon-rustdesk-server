@@ -24,7 +24,7 @@ rules:
   comments:
     level: error
     require-starting-space: true
-    min-spaces-from-content: 2
+    min-spaces-from-content: 1
   comments-indentation:
     level: error
   document-end:
@@ -52,7 +52,7 @@ rules:
     ignore: |
       .github/support.yml
     level: warning
-    max: 120
+    max: 130
     allow-non-breakable-words: true
     allow-non-breakable-inline-mappings: true
   new-line-at-end-of-file:

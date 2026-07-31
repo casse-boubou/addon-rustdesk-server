@@ -1,11 +1,11 @@
-ARG BUILD_FROM
+ARG BUILD_FROM=ghcr.io/hassio-addons/base:21.0.0
 # https://github.com/hassio-addons/addon-base/releases
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
 # https://github.com/rustdesk/rustdesk-server/releases
 ARG BUILD_ARCH
-ARG RUSTDESK_SERVER_VERSION=1.1.16
+ARG RUSTDESK_SERVER_VERSION="1.1.16"
 
 # Add Rustdesk-Server
 RUN set -eux \

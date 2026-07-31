@@ -1,32 +1,37 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["github>casse-boubou/ha-addon-workflows//.github/renovate.json"],
   "customManagers": [
     {
       "customType": "regex",
-      "managerFilePatterns": ["//Dockerfile$/"],
-      "matchStringsStrategy": "any",
-      "matchStrings": [
-        "\\s\\s(?<package>[a-z0-9][a-z0-9-_]+)=(?<currentValue>[a-z0-9-_.]+)\\s+"
-      ],
+      "managerFilePatterns": ["/(^|/)Dockerfile$/"],
       "datasourceTemplate": "repology",
-      "depNameTemplate": "alpine_3_24/{{package}}",
+      "packageNameTemplate": "alpine_3_24/{{package}}",
+      "depNameTemplate": "{{package}}",
+      "matchStrings": [
+        "\\s(?<package>[a-z0-9][a-z0-9-_]+)=(?<currentValue>[a-z0-9-_.]+)\\s"
+      ],
       "versioningTemplate": "loose"
     },
     {
       "customType": "regex",
-      "managerFilePatterns": ["//Dockerfile$/"],
-      "matchStrings": ["ARG RUSTDESK_SERVER_VERSION=(?<currentValue>.+?)\\s+"],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "rustdesk/rustdesk-server",
+      "managerFilePatterns": ["/(^|/)Dockerfile$/"],
+      "datasourceTemplate": "github-tags",
+      "packageNameTemplate": "rustdesk/rustdesk-server",
+      "depNameTemplate": "Rustdesk-server",
+      "matchStrings": [
+        "(ARG)\\s(RUSTDESK_SERVER.*_VERSION)=\"(?<currentValue>v?[0-9]+\\.[0-9]+(\\.[0-9]+){0,1})\"\\n"
+      ],
       "versioningTemplate": "loose"
     }
   ],
   "packageRules": [
     {
-      "matchDatasources": ["github-releases"],
+      "matchManagers": ["custom.regex"],
+      "matchDatasources": ["github-tags"],
       "matchDepNames": ["rustdesk/rustdesk-server"],
       "commitMessagePrefix": "✨",
-      "commitMessageTopic": "RustDesk-server"
+      "commitMessageTopic": "{{depName}}"
     }
   ]
 }
