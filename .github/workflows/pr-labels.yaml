@@ -14,4 +14,4 @@ permissions: {}
 
 jobs:
   workflows:
-    uses: casse-boubou/ha-addon-workflows/.github/workflows/pr-labels.yaml@main
+    uses: casse-boubou/ha-addon-workflows/.github/workflows/pr-labels.yaml@2ce2cf1cc7f2cb59a8237e939566829581bd7166 # main
