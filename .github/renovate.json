@@ -27,6 +27,10 @@
   ],
   "packageRules": [
     {
+      "matchDepTypes": ["action"],
+      "pinDigests": false
+    },
+    {
       "matchManagers": ["custom.regex"],
       "matchDatasources": ["github-tags"],
       "matchDepNames": ["rustdesk/rustdesk-server"],
