@@ -13,4 +13,4 @@ permissions:
 
 jobs:
   workflows:
-    uses: casse-boubou/ha-addon-workflows/.github/workflows/stale.yaml@main
+    uses: casse-boubou/ha-addon-workflows/.github/workflows/stale.yaml@1ece86bb34605edfed3a242a263acd818cc546cb # main

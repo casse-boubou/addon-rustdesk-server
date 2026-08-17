@@ -20,13 +20,13 @@ jobs:
       contents: read
       packages: read
       security-events: write
-    uses: casse-boubou/ha-addon-workflows/.github/workflows/app-ci.yaml@main
+    uses: casse-boubou/ha-addon-workflows/.github/workflows/app-ci.yaml@1ece86bb34605edfed3a242a263acd818cc546cb # main
 
   deploy:
     needs: ci
     permissions:
       contents: read
       packages: write
-    uses: casse-boubou/ha-addon-workflows/.github/workflows/app-deploy.yaml@main
+    uses: casse-boubou/ha-addon-workflows/.github/workflows/app-deploy.yaml@1ece86bb34605edfed3a242a263acd818cc546cb # main
     secrets:
       DISPATCH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
