@@ -21,4 +21,4 @@ permissions:
 
 jobs:
   workflows:
-    uses: casse-boubou/ha-addon-workflows/.github/workflows/app-ci.yaml@main
+    uses: casse-boubou/ha-addon-workflows/.github/workflows/app-ci.yaml@50672ca6b27a4261038cd22099e650bd3216b3e6 # main

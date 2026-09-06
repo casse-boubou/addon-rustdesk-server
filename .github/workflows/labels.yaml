@@ -12,4 +12,4 @@ permissions:
 
 jobs:
   workflows:
-    uses: casse-boubou/ha-addon-workflows/.github/workflows/labels.yaml@main
+    uses: casse-boubou/ha-addon-workflows/.github/workflows/labels.yaml@50672ca6b27a4261038cd22099e650bd3216b3e6 # main
