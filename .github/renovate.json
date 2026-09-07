@@ -27,7 +27,10 @@
   ],
   "packageRules": [
     {
-      "matchDepTypes": ["action"],
+      "matchDepTypes": [
+        "action",
+        "workflow"
+      ],
       "pinDigests": false
     },
     {
